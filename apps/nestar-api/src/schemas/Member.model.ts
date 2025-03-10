@@ -101,7 +101,7 @@ const MemberSchema = new Schema(
 			default: 0,
 		},
 
-		memberMornings: {
+		memberWarnings: {
 			type: Number,
 			default: 0,
 		},
