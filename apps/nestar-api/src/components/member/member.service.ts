@@ -25,10 +25,9 @@ export class MemberService {
 
 	public async login(input: LoginInput): Promise<Member> {
 		const { memberNick, memberPassword } = input;
-		const response = await this.memberModel
-			.findOne({ memberNick: memberNick })
-			.select('+memberPassword')
-			.exec();
+		const response = await this.memberModel.findOne({ memberNick: memberNick }).select('+memberPassword').exec();
+
+		console.log('response:', response);
 
 		if (!response || response.memberStatus === MemberStatus.DELETE) {
 			throw new InternalServerErrorException(Messages.NO_MEMBER_NICK);
