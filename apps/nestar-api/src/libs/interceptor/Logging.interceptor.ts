@@ -43,8 +43,6 @@ export class LoggingInterceptor implements NestInterceptor {
         })
       );
     }
-    // Default return in case requestType is neither "http" nor "graphql"
-    return next.handle();
   }
 
   private stringify(context: ExecutionContext): string {
