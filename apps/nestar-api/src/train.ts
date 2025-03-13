@@ -1,16 +1,23 @@
 console.log('Train.ts ishga tushdi');
 console.log('--------------------------------------');
-/**TASK-ZL:
+/**TASK ZM:
 
-Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
-MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+Shunday function yozing, va bu function parametr
+sifatida raqamlarni qabul qilsin. Bu function qabul qilingan
+raqamlarni orqasiga o'girib qaytarsin
+
+MASALAN: reverseInteger(123456789); return 987654321;
+
+Yuqoridagi misolda, function kiritilgan raqamlarni orqasiga
+o'girib (reverse) qilib qaytarmoqda.
 */
 
-function stringToKebab(str: string) {
-	return str.split(" ").map((ele) => ele.toLowerCase()).join("-")
+function reverseInteger(number: number) {
+	return Number(number.toString().split("").reverse().join(""))
+
 }
 
-console.log(stringToKebab('I love Kebab'));
+console.log(reverseInteger(123456789));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -49,4 +56,16 @@ function printNumbers(arr: any[]) {
 }
 
 printNumbers([1, [1, 2, [4]]]);
+*/
+/**TASK-ZL:
+
+Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
+MASALAN: stringToKebab(“I love Kebab”) return “i-love-kebab”
+
+
+function stringToKebab(str: string) {
+	return str.split(" ").map((ele) => ele.toLowerCase()).join("-")
+}
+
+console.log(stringToKebab('I love Kebab'));
 */
