@@ -1,5 +1,5 @@
-console.log('Train.ts ishga tushdi');
-console.log('--------------------------------------');
+console.log("Train.ts ishga tushdi");
+console.log("--------------------------------------");
 /**TASK ZM:
 
 Shunday function yozing, va bu function parametr
@@ -13,8 +13,16 @@ o'girib (reverse) qilib qaytarmoqda.
 */
 
 function reverseInteger(number: number) {
-	return Number(number.toString().split("").reverse().join(""))
-
+  const obj = {
+    a: {
+      b: {
+        c: {
+          message: "MESSAGE",
+        },
+      },
+    },
+  };
+  return obj.a.b.c.message;
 }
 
 console.log(reverseInteger(123456789));
