@@ -36,8 +36,6 @@ export class MemberService {
       .select("+memberPassword")
       .exec();
 
-    console.log("response:", response);
-
     if (!response || response.memberStatus === MemberStatus.DELETE) {
       throw new InternalServerErrorException(Message.NO_MEMBER_NICK);
     } else if (response.memberStatus === MemberStatus.BLOCK) {
