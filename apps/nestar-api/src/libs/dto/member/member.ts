@@ -21,17 +21,17 @@ export class Member {
   memberAuthType: MemberAuthType;
 
   @Field(() => String)
-  memberPhone: string;
+  memberNick: string;
 
   @Field(() => String)
-  memberNick: string;
+  memberPhone: string;
 
   memberPassword?: string;
 
   @Field(() => String, { nullable: true })
   memberFullName?: string;
 
-  @Field(() => Int)
+  @Field(() => String)
   memberImage: string;
 
   @Field(() => String, { nullable: true })
