@@ -1,16 +1,16 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZN:
+/**TASK-ZO:
 
-Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
-MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
+Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 */
 
-function rotateArray(arr: number[], index: number) {
-  return arr.splice(index + 1, arr.length).concat(arr);
+function areParenthesesBalanced(str: string) {
+  return str.split("(").length === str.split(")").length
 }
 
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
 //****************************************************** */
 /**TASK-ZK:
 
@@ -81,3 +81,14 @@ function reverseInteger(number: number) {
 
 console.log(reverseInteger(123456789));
 */
+/**TASK-ZN:
+
+Shunday function yozing, uni array va number parametri bolsin. Ikkinchi parametrda berilgan raqamli indexgacha arrayni orqasiga ogirib qaytarsin.
+MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3) return [5, 6, 1, 2, 3, 4]
+
+function rotateArray(arr: number[], index: number) {
+	return arr.splice(index + 1, arr.length).concat(arr);
+  }
+  
+  console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+  */
