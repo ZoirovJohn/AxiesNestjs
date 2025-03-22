@@ -21,8 +21,8 @@ import {
   validMimeTypes,
 } from "../../libs/config";
 import { WithoutGuard } from "../auth/guards/without.guard";
-import GraphQLUpload from "graphql-upload/GraphQLUpload.mjs";
-import type { FileUpload } from "graphql-upload/processRequest.mjs";
+import { GraphQLUpload, FileUpload } from "graphql-upload";
+
 
 import { createWriteStream } from "fs";
 import { Message } from "../../libs/enums/common.enum";
