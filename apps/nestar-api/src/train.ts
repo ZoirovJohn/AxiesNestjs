@@ -1,16 +1,22 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZO:
+/**TASK-ZP:
 
-Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
-MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 */
 
-function areParenthesesBalanced(str: string) {
-  return str.split("(").length === str.split(")").length
+function countNumberAndLetters(str: string) {
+  let number = 0;
+  let letter = 0;
+  for (const char of str) {
+    if (/[0-9]/.test(char)) number++;
+    else if (/[a-zA-Z]/.test(char)) letter++;
+  }
+  return { number: number, letter: letter };
 }
 
-console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
+console.log(countNumberAndLetters("string152%\¥"));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -91,4 +97,17 @@ function rotateArray(arr: number[], index: number) {
   }
   
   console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+  */
+
+/**TASK-ZO:
+
+Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+
+function areParenthesesBalanced(str: string) {
+	return str.split("(").length === str.split(")").length
+  }
+  
+  console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
   */
