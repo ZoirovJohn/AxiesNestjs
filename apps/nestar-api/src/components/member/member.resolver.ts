@@ -23,7 +23,6 @@ import {
 import { WithoutGuard } from "../auth/guards/without.guard";
 import { GraphQLUpload, FileUpload } from "graphql-upload";
 
-
 import { createWriteStream } from "fs";
 import { Message } from "../../libs/enums/common.enum";
 
@@ -163,7 +162,7 @@ export class MemberResolver {
         index: number
       ): Promise<Promise<void>> => {
         try {
-          const { filename, mimetype, encoding, createReadStream } = await img;
+          const { filename, mimetype, createReadStream } = await img;
 
           const validMime = validMimeTypes.includes(mimetype);
           if (!validMime) throw new Error(Message.PROVIDE_ALLOWED_FORMAT);
