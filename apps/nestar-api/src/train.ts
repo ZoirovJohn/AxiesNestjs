@@ -1,22 +1,29 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZP:
+/**TASK-ZQ:
 
-Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
-MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
 */
 
-function countNumberAndLetters(str: string) {
-  let number = 0;
-  let letter = 0;
-  for (const char of str) {
-    if (/[0-9]/.test(char)) number++;
-    else if (/[a-zA-Z]/.test(char)) letter++;
+function findDuplicates(arr: number[]) {
+  const countMap: Record<number, number> = {};
+  const result: number[] = [];
+
+  for (const num of arr) {
+    countMap[num] = (countMap[num] || 0) + 1;
   }
-  return { number: number, letter: letter };
+
+  for (const num in countMap) {
+    if (countMap[num] > 1) {
+      result.push(Number(num));
+    }
+  }
+
+  return result;
 }
 
-console.log(countNumberAndLetters("string152%\¥"));
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -110,4 +117,22 @@ function areParenthesesBalanced(str: string) {
   }
   
   console.log(areParenthesesBalanced("string()ichida(qavslar)soni()balansda"))
+  */
+/**TASK-ZP:
+
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+
+function countNumberAndLetters(str: string) {
+	let number = 0;
+	let letter = 0;
+	for (const char of str) {
+	  if (/[0-9]/.test(char)) number++;
+	  else if (/[a-zA-Z]/.test(char)) letter++;
+	}
+	return { number: number, letter: letter };
+  }
+  
+  console.log(countNumberAndLetters("string152%\¥"));
   */
