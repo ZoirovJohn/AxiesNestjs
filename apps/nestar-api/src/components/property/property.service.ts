@@ -33,7 +33,7 @@ export class PropertyService {
   public async createProperty(input: PropertyInput): Promise<Property> {
     try {
       const result = await this.propertyModel.create(input);
-      await this.memberService.memberStateEditor({
+      await this.memberService.memberStatsEditor({
         _id: result.memberId,
         targetKey: "memberProperties",
         modifier: 1,
@@ -119,7 +119,7 @@ export class PropertyService {
     if (!result) throw new InternalServerErrorException(Message.UPDATE_FAILED);
 
     if (soldAt || deleteAt) {
-      await this.memberService.memberStateEditor({
+      await this.memberService.memberStatsEditor({
         _id: memberId,
         targetKey: "memberProperties",
         modifier: -1,
@@ -276,5 +276,34 @@ export class PropertyService {
       throw new InternalServerErrorException(Message.NO_DATA_FOUND);
 
     return result[0];
+  }
+
+  public async updatePropertyByAdmin(input: PropertyUpdate): Promise<Property> {
+    let { propertyStatus, soldAt, deleteAt } = input;
+    const search: T = {
+      _id: input._id,
+      propertyStatus: PropertyStatus.ACTIVE,
+    };
+
+    if (propertyStatus === PropertyStatus.SOLD) soldAt = moment().toDate();
+    else if (propertyStatus === PropertyStatus.DELETE)
+      deleteAt = moment().toDate();
+
+    const result = await this.propertyModel
+      .findOneAndUpdate(search, input, {
+        new: true,
+      })
+      .exec();
+    if (!result) throw new InternalServerErrorException(Message.UPDATE_FAILED);
+
+    if (soldAt || deleteAt) {
+      await this.memberService.memberStatsEditor({
+        _id: result.memberId,
+        targetKey: "memberProperties",
+        modifier: -1,
+      });
+    }
+
+    return result;
   }
 }
