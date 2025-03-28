@@ -84,6 +84,8 @@ export class PropertyService {
       null,
       targetProperty.memberId
     );
+    console.log("target property:", targetProperty);
+    
     return targetProperty;
   }
 

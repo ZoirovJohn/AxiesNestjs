@@ -53,4 +53,4 @@ const BoardArticleSchema = new Schema(
 	{ timestamps: true, collection: 'boardArticles' },
 );
 
-export default BoardArticleSchema;
+export default BoardArticleSchema; 
