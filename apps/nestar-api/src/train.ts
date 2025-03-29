@@ -1,29 +1,23 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZQ:
+/**TASK-ZR:
 
-Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
-MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
 */
 
-function findDuplicates(arr: number[]) {
-  const countMap: Record<number, number> = {};
-  const result: number[] = [];
-
-  for (const num of arr) {
-    countMap[num] = (countMap[num] || 0) + 1;
+function countNumberAndLetters(str: string) {
+  let number = 0;
+  let letter = 0;
+  for (const char of str) {
+    if (/[0-9]/.test(char)) number++;
+    else if (/[a-zA-Z]/.test(char)) letter++;
   }
 
-  for (const num in countMap) {
-    if (countMap[num] > 1) {
-      result.push(Number(num));
-    }
-  }
-
-  return result;
+  return { number: number, letter: letter };
 }
 
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
+console.log(countNumberAndLetters("string152%\¥"));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -135,4 +129,29 @@ function countNumberAndLetters(str: string) {
   }
   
   console.log(countNumberAndLetters("string152%\¥"));
+  */
+/**TASK-ZQ:
+
+Shunday function yozing, u parametridagi array ichida 2 marta qaytarilgan sonlarni alohida araryda qaytarsin.
+MASALAN: findDuplicates([1,2,3,4,5,4,3,4]) return [3, 4]
+
+
+function findDuplicates(arr: number[]) {
+	const countMap: Record<number, number> = {};
+	const result: number[] = [];
+  
+	for (const num of arr) {
+	  countMap[num] = (countMap[num] || 0) + 1;
+	}
+  
+	for (const num in countMap) {
+	  if (countMap[num] > 1) {
+		result.push(Number(num));
+	  }
+	}
+  
+	return result;
+  }
+  
+  console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
   */
