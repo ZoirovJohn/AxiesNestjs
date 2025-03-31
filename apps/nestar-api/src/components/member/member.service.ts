@@ -119,7 +119,14 @@ export class MemberService {
         targetMember.memberViews++;
       }
 
-      // mewLiked
+      const likeInput = {
+        memberId: memberId,
+        likeRefId: targetId,
+        likeGroup: LikeGroup.MEMBER,
+      };
+      targetMember.meLiked =
+        await this.likeService.checkLikeExistance(likeInput);
+
       // mewFollowed
     }
 
