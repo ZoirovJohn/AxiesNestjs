@@ -1,23 +1,28 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZR:
+/**TASK-ZS:
 
-Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
-MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+Shunday function yozing, u parametridagi arrayni ichidagi 1 marta kelgan elemnetni qaytarsin.
+MASALAN: singleNumber([4, 2, 1, 2, 1]) return 4
 */
 
-function countNumberAndLetters(str: string) {
-  let number = 0;
-  let letter = 0;
-  for (const char of str) {
-    if (/[0-9]/.test(char)) number++;
-    else if (/[a-zA-Z]/.test(char)) letter++;
+function singleNumber(arr: number[]) {
+  const countMap: Record<number, number> = {};
+  const result: number[] = [];
+
+  for (const num of arr) {
+    countMap[num] = (countMap[num] || 0) + 1;
   }
 
-  return { number: number, letter: letter };
+  for (const num in countMap) {
+    if (countMap[num] === 1) {
+      return num;
+    }
+  }
+  console.log("countMap:", countMap);
 }
 
-console.log(countNumberAndLetters("string152%\¥"));
+console.log(singleNumber([4, 2, 1, 2, 1]));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -155,3 +160,22 @@ function findDuplicates(arr: number[]) {
   
   console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4]));
   */
+/**TASK-ZR:
+
+Shunday function yozing, u parametridagi string ichidagi raqam va sonlarni sonini sanasin.
+MASALAN: countNumberAndLetters(“string152%\¥”) return {number:3, letter:6}
+
+
+function countNumberAndLetters(str: string) {
+  let number = 0;
+  let letter = 0;
+  for (const char of str) {
+    if (/[0-9]/.test(char)) number++;
+    else if (/[a-zA-Z]/.test(char)) letter++;
+  }
+
+  return { number: number, letter: letter };
+}
+
+console.log(countNumberAndLetters("string152%\¥"));
+*/
