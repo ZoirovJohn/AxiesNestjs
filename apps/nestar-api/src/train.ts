@@ -1,27 +1,28 @@
 console.log("Train.ts ishga tushdi");
 console.log("--------------------------------------");
-/**TASK-ZT:
+/**TASK-ZU:
 
-Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
-MASALAN: firstUniqueCharIndex(“stamp”) return 0
+Shunday function yozing, u parametridagi array ichida takrorlanmagan raqamlar yig'indisini qaytarsin.
+MASALAN: sumOfUnique([1,2,3,2]) return 4
 */
 
-function firstUniqueCharIndex(word: string) {
-  const countMap: Record<string, number> = {};
+function sumOfUnique(arr: number[]) {
+  const countMap: Record<number, number> = {};
+  let result: number = 0;
 
-  for (const num of word) {
+  for (const num of arr) {
     countMap[num] = (countMap[num] || 0) + 1;
   }
-//   console.log("countMap:", countMap);
-  
-  for (const num in countMap) {
-	  if (countMap[num] === 1) {
-		  return num;
-		}
-	}
-  }
 
-console.log(firstUniqueCharIndex("stamp"));
+  for (const num in countMap) {
+    if (countMap[num] === 1) {
+      result += Number(num);
+    }
+  }
+  return result;
+}
+
+console.log(sumOfUnique([1, 2, 3, 2]));
 //****************************************************** */
 /**TASK-ZK:
 
@@ -202,3 +203,26 @@ function singleNumber(arr: number[]) {
   
   console.log(singleNumber([4, 2, 1, 2, 1]));
   */
+/**TASK-ZT:
+
+Shunday function yozing, u parametridagi string ichida 1 martadan ortiq qaytarilmagan birinchi harf indeksini qaytarsin.
+MASALAN: firstUniqueCharIndex(“stamp”) return 0
+
+
+function firstUniqueCharIndex(word: string) {
+  const countMap: Record<string, number> = {};
+
+  for (const num of word) {
+    countMap[num] = (countMap[num] || 0) + 1;
+  }
+  //   console.log("countMap:", countMap);
+
+  for (const num in countMap) {
+    if (countMap[num] === 1) {
+      return num;
+    }
+  }
+}
+
+console.log(firstUniqueCharIndex("stamp"));
+*/
