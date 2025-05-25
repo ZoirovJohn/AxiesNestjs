@@ -40,6 +40,8 @@ export class MemberService {
     input.memberPassword = await this.authService.hashPassword(
       input.memberPassword
     );
+    console.log("input:", input);
+    
 
     try {
       const result = await this.memberModel.create(input);

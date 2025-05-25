@@ -11,7 +11,7 @@ import {
 import {
   PropertyLocation,
   PropertyStatus,
-  PropertyType,
+  PropertyCollection,
 } from "../../enums/property.enum";
 import { ObjectId } from "mongoose";
 import { availablePropertySorts } from "../../config";
@@ -20,8 +20,8 @@ import { Direction } from "../../enums/common.enum";
 @InputType()
 export class PropertyInput {
   @IsNotEmpty()
-  @Field(() => PropertyType)
-  propertyType: PropertyType;
+  @Field(() => PropertyCollection)
+  propertyCollection: PropertyCollection;
 
   @IsNotEmpty()
   @Field(() => PropertyLocation)
@@ -43,19 +43,19 @@ export class PropertyInput {
 
   @IsNotEmpty()
   @Field(() => Number)
-  propertySquare: number;
+  propertyRarityScore: number;
 
   @IsNotEmpty()
   @IsInt()
   @Min(1)
   @Field(() => Int)
-  propertyBeds: number;
+  propertyEditions: number;
 
   @IsNotEmpty()
   @IsInt()
   @Min(1)
   @Field(() => Int)
-  propertyRooms: number;
+  propertyTraitGroups: number;
 
   @IsNotEmpty()
   @Field(() => [String])
@@ -121,8 +121,8 @@ class PISearch {
   locationList?: PropertyLocation[];
 
   @IsOptional()
-  @Field(() => [PropertyType], { nullable: true })
-  typeList?: PropertyType[];
+  @Field(() => [PropertyCollection], { nullable: true })
+  typeList?: PropertyCollection[];
 
   @IsOptional()
   @Field(() => [Int], { nullable: true })

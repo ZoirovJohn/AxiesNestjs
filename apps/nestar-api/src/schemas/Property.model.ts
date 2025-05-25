@@ -2,14 +2,14 @@ import { Schema } from "mongoose";
 import {
   PropertyLocation,
   PropertyStatus,
-  PropertyType,
+  PropertyCollection,
 } from "../libs/enums/property.enum";
 
 const PropertySchema = new Schema(
   {
-    propertyType: {
+    propertyCollection: {
       type: String,
-      enum: PropertyType,
+      enum: PropertyCollection,
       required: true,
     },
 
@@ -40,17 +40,17 @@ const PropertySchema = new Schema(
       required: true,
     },
 
-    propertySquare: {
+    propertyRarityScore: {
       type: Number,
       required: true,
     },
 
-    propertyBeds: {
+    propertyEditions: {
       type: Number,
       required: true,
     },
 
-    propertyRooms: {
+    propertyTraitGroups: {
       type: Number,
       required: true,
     },
@@ -116,7 +116,7 @@ const PropertySchema = new Schema(
 );
 
 PropertySchema.index(
-  { propertyType: 1, propertyLocation: 1, propertyTitle: 1, propertyPrice: 1 },
+  { propertyCollection: 1, propertyLocation: 1, propertyTitle: 1, propertyPrice: 1 },
   { unique: true }
 );
 

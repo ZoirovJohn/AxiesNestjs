@@ -1,12 +1,16 @@
 import { registerEnumType } from "@nestjs/graphql";
 
-export enum PropertyType {
-  APARTMENT = "APARTMENT",
-  VILLA = "VILLA",
-  HOUSE = "HOUSE",
+export enum PropertyCollection {
+  // APARTMENT = "APARTMENT",
+  // VILLA = "VILLA",
+  // HOUSE = "HOUSE",
+  ART = "ART",
+  MUSIC = "MUSIC",
+  COLLECTIBLE = "COLLECTIBLE",
+  SPORTS = "SPORTS",
 }
-registerEnumType(PropertyType, {
-  name: "PropertyType",
+registerEnumType(PropertyCollection, {
+  name: "PropertyCollection",
 });
 
 export enum PropertyStatus {

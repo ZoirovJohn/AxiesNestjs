@@ -3,7 +3,7 @@ import { ObjectId } from "mongoose";
 import {
   PropertyLocation,
   PropertyStatus,
-  PropertyType,
+  PropertyCollection,
 } from "../../enums/property.enum";
 import { Member, TotalCounter } from "../member/member";
 import { MeLiked } from "../like/like";
@@ -13,8 +13,8 @@ export class Property {
   @Field(() => String)
   _id: ObjectId;
 
-  @Field(() => PropertyType)
-  propertyType: PropertyType;
+  @Field(() => PropertyCollection)
+  propertyCollection: PropertyCollection;
 
   @Field(() => PropertyStatus)
   propertyStatus: PropertyStatus;
@@ -32,13 +32,13 @@ export class Property {
   propertyPrice: number;
 
   @Field(() => Number)
-  propertySquare: number;
+  propertyRarityScore: number;
 
   @Field(() => Int)
-  propertyBeds: number;
+  propertyEditions: number;
 
   @Field(() => Int)
-  propertyRooms: number;
+  propertyTraitGroups: number;
 
   @Field(() => Int)
   propertyViews: number;

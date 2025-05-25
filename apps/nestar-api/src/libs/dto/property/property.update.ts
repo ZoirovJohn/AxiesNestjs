@@ -3,7 +3,7 @@ import { IsInt, IsNotEmpty, IsOptional, Length, Min } from "class-validator";
 import {
   PropertyLocation,
   PropertyStatus,
-  PropertyType,
+  PropertyCollection,
 } from "../../enums/property.enum";
 import { ObjectId } from "mongoose";
 
@@ -14,8 +14,8 @@ export class PropertyUpdate {
   _id: ObjectId;
 
   @IsOptional()
-  @Field(() => PropertyType, { nullable: true })
-  propertyType?: PropertyType;
+  @Field(() => PropertyCollection, { nullable: true })
+  propertyCollection?: PropertyCollection;
 
   @IsOptional()
   @Field(() => PropertyStatus, { nullable: true })
@@ -41,19 +41,19 @@ export class PropertyUpdate {
 
   @IsOptional()
   @Field(() => Number, { nullable: true })
-  propertySquare?: number;
+  propertyRarityScore?: number;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Field(() => Int, { nullable: true })
-  propertyBeds?: number;
+  propertyEditions?: number;
 
   @IsOptional()
   @IsInt()
   @Min(1)
   @Field(() => Int, { nullable: true })
-  propertyRooms?: number;
+  propertyTraitGroups?: number;
 
   @IsOptional()
   @Field(() => [String], { nullable: true })

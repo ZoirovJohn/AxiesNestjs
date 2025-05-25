@@ -179,7 +179,7 @@ export class PropertyService {
       memberId,
       locationList,
       roomList,
-      bedsList,
+      bedsList: editionsList,
       typeList,
       periodsRange,
       pricesRange,
@@ -189,16 +189,16 @@ export class PropertyService {
     } = input.search;
     if (memberId) match.memberId = shapeIntoMongoObjectId(memberId);
     if (locationList) match.propertyLocation = { $in: locationList };
-    if (roomList) match.propertyRooms = { $in: roomList };
-    if (bedsList) match.propertyBeds = { $in: bedsList };
-    if (typeList) match.propertyType = { $in: typeList };
+    if (roomList) match.propertyTraitGroups = { $in: roomList };
+    if (editionsList) match.propertyEditions = { $in: editionsList };
+    if (typeList) match.propertyCollection = { $in: typeList };
 
     if (pricesRange)
       match.propertyPrice = { $gte: pricesRange.start, $lte: pricesRange.end };
     if (periodsRange)
       match.createdAt = { $gte: periodsRange.start, $lte: periodsRange.end };
     if (squaresRange)
-      match.propertySquare = {
+      match.propertyRarityScore = {
         $gte: squaresRange.start,
         $lte: squaresRange.end,
       };
@@ -343,6 +343,7 @@ export class PropertyService {
       .findOneAndUpdate(search, input, {
         new: true,
       })
+      .lean()
       .exec();
     if (!result) throw new InternalServerErrorException(Message.UPDATE_FAILED);
 
