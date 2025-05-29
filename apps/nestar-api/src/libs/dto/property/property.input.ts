@@ -122,7 +122,7 @@ class PISearch {
 
   @IsOptional()
   @Field(() => [PropertyCollection], { nullable: true })
-  typeList?: PropertyCollection[];
+  collectionList?: PropertyCollection[];
 
   @IsOptional()
   @Field(() => [Int], { nullable: true })

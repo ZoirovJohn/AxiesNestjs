@@ -180,7 +180,7 @@ export class PropertyService {
       locationList,
       roomList,
       bedsList: editionsList,
-      typeList,
+      collectionList,
       periodsRange,
       pricesRange,
       squaresRange,
@@ -191,7 +191,7 @@ export class PropertyService {
     if (locationList) match.propertyLocation = { $in: locationList };
     if (roomList) match.propertyTraitGroups = { $in: roomList };
     if (editionsList) match.propertyEditions = { $in: editionsList };
-    if (typeList) match.propertyCollection = { $in: typeList };
+    if (collectionList) match.propertyCollection = { $in: collectionList };
 
     if (pricesRange)
       match.propertyPrice = { $gte: pricesRange.start, $lte: pricesRange.end };
