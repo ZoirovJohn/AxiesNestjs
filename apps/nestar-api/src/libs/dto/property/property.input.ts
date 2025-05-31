@@ -1,4 +1,4 @@
-import { Field, InputType, Int } from "@nestjs/graphql";
+import { Field, Float, InputType, Int } from "@nestjs/graphql";
 import {
   IsBoolean,
   IsIn,
@@ -85,10 +85,10 @@ export class PropertyInput {
 
 @InputType()
 export class PricesRange {
-  @Field(() => Int)
+  @Field(() => Float)
   start: number;
 
-  @Field(() => Int)
+  @Field(() => Float)
   end: number;
 }
 
