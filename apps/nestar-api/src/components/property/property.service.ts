@@ -142,7 +142,15 @@ export class PropertyService {
     memberId: ObjectId,
     input: PropertiesInquiry
   ): Promise<Properties> {
-    const match: T = { propertyStatus: PropertyStatus.ACTIVE };
+    const match: T = {
+      propertyStatus: PropertyStatus.ACTIVE,
+    };
+
+    if (input.search.memberId) {
+      const thatMemberId = shapeIntoMongoObjectId(input.search.memberId);
+      match.memberId = thatMemberId;
+    }
+
     const sort: T = {
       [input?.sort ?? "createdAt"]: input?.direction ?? Direction.DESC,
     };
@@ -168,6 +176,7 @@ export class PropertyService {
         },
       ])
       .exec();
+
     if (!result.length)
       throw new InternalServerErrorException(Message.NO_DATA_FOUND);
 
