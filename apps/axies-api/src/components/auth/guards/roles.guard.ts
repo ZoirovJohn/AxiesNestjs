@@ -7,7 +7,7 @@ import {
 } from "@nestjs/common";
 import { Reflector } from "@nestjs/core";
 import { AuthService } from "../auth.service";
-import { Message } from "apps/nestar-api/src/libs/enums/common.enum";
+import { Message } from "apps/axies-api/src/libs/enums/common.enum";
 
 @Injectable()
 export class RolesGuard implements CanActivate {
