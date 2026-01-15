@@ -30,6 +30,7 @@ export class CommentResolver {
     return await this.commentService.createComment(memberId, input);
   }
 
+  //updateComment
   @UseGuards(AuthGuard)
   @Mutation(() => Comment)
   public async updateComment(
@@ -41,6 +42,7 @@ export class CommentResolver {
     return await this.commentService.updateComment(memberId, input);
   }
 
+  //Comments
   @UseGuards(WithoutGuard)
   @Query(() => Comments)
   public async getComments(
